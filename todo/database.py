@@ -11,7 +11,8 @@ def get_database_path(config_file: Path) -> Path:
     config_parser.read(config_file)
     return Path(config_parser["General"]["database"])
 
-def init_database(db_path: Path) -> int:
+def init_database(db_path: str) -> int:
+    db_path = Path(db_path)
     try:
         db_path.write_text("[]")
         return SUCCESS
