@@ -42,7 +42,7 @@ def init(
             fg = typer.colors.RED
         )
         raise typer.Exit(1)
-    db_init_error = database.init_database(db_path)
+    db_init_error = database.init_database(Path(db_path))
     if db_init_error:
         typer.secho(
             f"Creating database file failed with {ERRORS[db_init_error]}",
